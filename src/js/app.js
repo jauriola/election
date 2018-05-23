@@ -42,7 +42,7 @@ App = {
       // This is a known issue with Metamask
       // https://github.com/MetaMask/metamask-extension/issues/2393
       instance.votedEvent({}, {
-        fromBlock: 0,
+        fromBlock: 'latest',
         toBlock: 'latest'
       }).watch(function(error, event) {
         console.log("event triggered", event)
@@ -59,7 +59,7 @@ App = {
 
     loader.show();
     content.hide();
-
+    
     // Load account data
     web3.eth.getCoinbase(function(err, account) {
       if (err === null) {
